@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('main.static', filename='css/task.css') }}"/>
+        <title>{% block title %}Magic Eggs{% endblock %}</title>
+    </head>
+    <body class="base">
+        {% block content %}
+
+        {% endblock %}
+    </body>
+    {% block custom_js %}
+
+    {% endblock %}
+</html>

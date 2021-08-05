@@ -1,0 +1,33 @@
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.db3
+.RData
+.Rhistory
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Auto-created files
+######################
+__pycache__
+flask_session/*
+
+# Config #
+##########
+config.py
+
+# Mine #
+########
+db_*
+tmp
+.vscode/
