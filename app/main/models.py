@@ -55,7 +55,7 @@ class Participant(db.Entity):
     as specified in TASK_ORDER.
 
     '''
-    _table_ = '' # <-- Change the name of your participant table
+    _table_ = 'bn_flaskcomp_participant' # <-- Change the name of your participant table
     id = PrimaryKey(uuid.UUID)
     task_order = Required(StrArray, default=lambda: list(TASK_ORDER))
     current_state = Required(str, default='NOT_STARTED')
@@ -86,7 +86,7 @@ class Participant(db.Entity):
 
 class Task(db.Entity):
     ''' Generic task instance '''
-    _table_ = 'task' # <-- Change the name of your task table
+    _table_ = 'bn_flaskcomp_task' # <-- Change the name of your task table
     participant = Required('Participant')
 
 
