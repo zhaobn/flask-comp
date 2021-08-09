@@ -2,7 +2,7 @@
 /** Ad hoc setups */
 const defaultStone = { 'borderWidth': '8px', 'mar': 5, 'len': 60 };
 const smallStone = { 'borderWidth': '3px', 'mar': 3, 'len': 20 };
-const maxBlocks = 12
+const maxBlocks = 16
 
 /** Basic helper functions */
 const readStripes= (stone) => parseInt(stone.replace(/[()]/g, '').split(',')[0])
@@ -132,6 +132,8 @@ function getAgentStoneSvg(agent = '(1,1,1)', color='red', base = 40, r = 25) {
       `<line class="agent-stone-stripe" x1="${base+getDelta(25)}" y1="${base-getDelta(25)-25}" x2="${base-getDelta(25)-25}" y2="${base+getDelta(25)}" stroke="${color}" />` + '\n' +
       `<line class="agent-stone-stripe" x1="${base+getDelta(25)+25}" y1="${base-getDelta(25)}" x2="${base-getDelta(25)}" y2="${base+getDelta(25)+25}" stroke="${color}" />`
       break;
+    default:
+      stripes = ''
   }
 
   return (circleSvg + stripes + '\n' + addDots(nDots))
@@ -557,7 +559,7 @@ function showPostCheckPage (isPass) {
 function showCompletion(code, nCorrect) {
   hide("debrief")
   showNext("completed")
-  let bonusVal = nCorrect * 0.1
+  let bonusVal = nCorrect * 0.05
   bonusVal = Math.round(bonusVal*100)/100
   let t = document.createTextNode(code);
   let co = createText('p', `You got ${nCorrect} predictions correct!
@@ -614,17 +616,23 @@ function getConfigs(config, type) {
     setups.genB = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==1 && readLength(c.recipient)==4).map(c => c.trial_id)
     setups.genC = config.filter(c => readDots(c.agent)<1 && [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
   } else if (type=='comp_mult') {
-    setups.learnA = [7, 20, 37]
-    setups.genA = [58, 67, 10, 62, 18, 8, 6, 68]
-    setups.learnB = [16, 28, 41]
-    setups.genB = [58, 67, 10, 62, 18, 8, 6, 68]
-    setups.genC = config.filter(c => [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
+    setups.learnA = [23, 42, 61]
+    setups.genA = [98, 82, 79, 40, 27, 8, 10, 60]
+    setups.learnB = [35, 50, 65]
+    setups.genB = [98, 82, 79, 40, 27, 8, 10, 60]
+    setups.genC = [98, 82, 79, 40, 27, 8, 10, 60]
   } else if (type=='comp_mult_reverse') {
-    setups.learnA = [16, 28, 41]
-    setups.genA = [58, 67, 10, 62, 18, 8, 6, 68]
-    setups.learnB = [7, 20, 37]
-    setups.genB = [58, 67, 10, 62, 18, 8, 6, 68]
-    setups.genC = config.filter(c => [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
+    setups.learnA = [35, 50, 65]
+    setups.genA = [98, 82, 79, 40, 27, 8, 10, 60]
+    setups.learnB = [23, 42, 61]
+    setups.genB = [98, 82, 79, 40, 27, 8, 10, 60]
+    setups.genC = [98, 82, 79, 40, 27, 8, 10, 60]
+  } else if (type=='comp_const') {
+    setups.learnA = [23, 42, 61]
+    setups.genA = [98, 82, 79, 40, 27, 8, 10, 60]
+    setups.learnB = [27, 31, 35]
+    setups.genB = [98, 82, 79, 40, 27, 8, 10, 60]
+    setups.genC = [98, 82, 79, 40, 27, 8, 10, 60]
   } else if (type=='comp_subs') {
     setups.learnA = config.filter(c => readDots(c.agent)<4 && readStripes(c.agent)==1 && readLength(c.recipient)==3).map(c => c.trial_id)
     setups.genA = config.filter(c => readDots(c.agent)==1 && readStripes(c.agent)==3 && readLength(c.recipient)==4).map(c => c.trial_id)

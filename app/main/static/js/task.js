@@ -2,8 +2,9 @@
 const mode = 'flask' // '', 'dev', 'test', 'flask'
 
 /** Pick a condition */
-const cond = 'comp_mult' // 'simple_easy', 'simple_hard', 'comp_mult', 'comp_mult_reverse', 'comp_subs', 'comp_subs_reverse', 'comp_mult
-// console.log(`${mode} mode; condition ${cond}.`);
+const conds_for_exp = [ 'comp_mult', 'comp_mult_reverse', 'comp_const' ]
+const cond = conds_for_exp[Math.floor(Math.random() * conds_for_exp.length)];
+(mode==='dev'|mode==='test')? console.log(`${mode} mode; condition ${cond}.`) : null
 
 const start_time = Date.now();
 let start_task_time = 0;
@@ -24,7 +25,7 @@ document.getElementById('intro-touch-2').append(createBlocks('intro-touch-2-bloc
 showQuestionMark(document.getElementById('intro-touch-2-blocks-block-3'))
 
 /** Example interface */
-const demoConfig = fmtConfig(config.filter(c => c.trial_id==26), 'demo', 'learn')
+const demoConfig = fmtConfig(config.filter(c => c.trial_id==48), 'demo', 'learn')
 document.getElementById('intro-demo').append(createLearnTask('intro-demo', demoConfig[0], 0, false))
 document.getElementById('intro-demo-test-btn-1').onclick = () => {
   playEffects(demoConfig[0], 'intro-demo', 1, true);
