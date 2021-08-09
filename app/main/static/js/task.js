@@ -387,6 +387,7 @@ doneBtn.onclick = () => {
 
   if (mode === 'flask') {
 		const submit_url = doneBtn.getAttribute("data-submit-url");
+    console.log(clientData)
     fetch(submit_url, {
         method: 'POST',
         body: JSON.stringify(clientData),
