@@ -564,7 +564,7 @@ function showCompletion(code, nCorrect) {
   let t = document.createTextNode(code);
   let co = createText('p', `You got ${nCorrect} predictions correct!
   You will get £${bonusVal} bonus on top of your base pay.
-  Bonus on writing the correct causal power will be paid after manual checks.`)
+  Bonus on writing the correct causal relationships will be paid after manual checks.`)
   document.getElementById('completion-code').append(t);
   document.getElementById('completed').append(co);
 }
