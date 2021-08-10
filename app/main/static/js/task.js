@@ -6,9 +6,20 @@ const conds_for_exp = [ 'comp_mult', 'comp_mult_reverse', 'comp_const' ]
 const cond = conds_for_exp[Math.floor(Math.random() * conds_for_exp.length)];
 (mode==='dev'|mode==='test')? console.log(`${mode} mode; condition ${cond}.`) : null;
 
-
 const start_time = Date.now();
 let start_task_time = 0;
+
+/** Collect prolific id */
+let subjectData = {}
+
+const prolificIdBtn = document.getElementById('prolific_id-btn')
+const prolificText = document.getElementById('prolific_id_text')
+prolificIdBtn.onclick = () => {
+  subjectData['prolific_id'] = prolificText.value
+  hide('prolific_id')
+  showNext('instruction', 'block')
+}
+
 
 /** Example egg in introduction */
 let introEg = document.getElementById('intro-eg')
@@ -61,7 +72,6 @@ let bobGenClicked = Array(bobGen.length).fill(0);
 let genClicked = Array(genConfigs.length).fill(0);
 
 // Data to save
-let subjectData = {}
 let trialData = prepTrialData([aliceLearn, aliceGen, bobLearn, bobGen].flat())
 
 // Key frame names
@@ -393,10 +403,10 @@ doneBtn.onclick = () => {
         method: 'POST',
         body: JSON.stringify(clientData),
     })
-    .then(() => showCompletion(token, nCorrect))
+    .then(() => showCompletion('8ECB0DFE', nCorrect))
     .catch((error) => console.log(error));
   } else {
-    showCompletion(token, nCorrect);
+    showCompletion('8ECB0DFE', nCorrect);
     // console.log(clientData);
     download(JSON.stringify(clientData), 'data.txt', '"text/csv"');
   }
