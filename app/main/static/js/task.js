@@ -154,8 +154,8 @@ for(let i = 0; i < aliceGen.length; i++ ) {
     trialData.selection[aliceLearn.length+i] = `(0,0,${getCurrentSelection(config, taskGenA)})`
     trialData.correct[aliceLearn.length+i] = (trialData.result[aliceLearn.length+i] === trialData.selection[aliceLearn.length+i])? 1 : 0
     // console.log(trialData)
+    hide(`${taskGenA}-box-${i+1}`)
     if (i < aliceGen.length-1) {
-      hide(`${taskGenA}-box-${i+1}`)
       showNext(`${taskGenA}-box-${i+2}`);
     } else {
       hide(taskCoverA)
