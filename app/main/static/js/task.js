@@ -378,6 +378,12 @@ doneBtn.onclick = () => {
   let token = generateToken(8);
   let nCorrect = trialData['correct'].reduce((a, b) => a + b, 0)
 
+  // Clean up free responses
+  subjectData['task-input-a_input'] = removeSpecial(subjectData['task-input-a_input'])
+  subjectData['task-input-b_input'] = removeSpecial(subjectData['task-input-b_input'])
+  subjectData['feedback'] = removeSpecial(subjectData['feedback'])
+
+
   let clientData = {};
   clientData.subjectwise = subjectData;
   clientData.subjectwise.condition = cond;
