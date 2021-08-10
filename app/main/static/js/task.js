@@ -4,7 +4,8 @@ const mode = 'flask' // '', 'dev', 'test', 'flask'
 /** Pick a condition */
 const conds_for_exp = [ 'comp_mult', 'comp_mult_reverse', 'comp_const' ]
 const cond = conds_for_exp[Math.floor(Math.random() * conds_for_exp.length)];
-(mode==='dev'|mode==='test')? console.log(`${mode} mode; condition ${cond}.`) : null
+(mode==='dev'|mode==='test')? console.log(`${mode} mode; condition ${cond}.`) : null;
+
 
 const start_time = Date.now();
 let start_task_time = 0;
@@ -161,7 +162,7 @@ for(let i = 0; i < aliceGen.length; i++ ) {
       hide(taskCoverA)
       // hide(taskTrainA)
       hide(taskInputA)
-      // hide(taskGenA)
+      hide(taskGenA)
       // showNext(taskReputA, 'block');
       showNext('task-bob', 'block');
     }
