@@ -23,57 +23,58 @@
 		<div class="frame">
 			<div id="instruction-text">
 				<p>Imagine you are playing in a magical field of wonders, where you encounter some magic eggs and some sticks.</p>
-				<p>The eggs seem to differ in terms of how many stripes and dots they have on them:</p>
-				<div id='intro-eg'></div>
-				<p>And the sticks are of various lengths (have different numbers of segments):</p>
-				<div id='intro-blocks'>
-					<div id="intro-blocks-1"></div><div id="intro-blocks-2"></div><div id="intro-blocks-3"></div>
-				</div>
-				<p>
-					Aha! You discover that when a magic egg touches a stick, it can cause the length of the stick to change
-					(i.e. increasing or decreasing how many segments it has).
-				</p>
-				<div id='intro-touch'>
-					<div id="intro-touch-1"></div><div id="intro-touch-2"></div>
-				</div>
-				<hr>
-				<h2>Task setup</h2>
-				<p>
-					Your task is to figure out the <b>causal relationship between the features of the magic eggs (spots and stripes)
-					and the eggs’ effect on the length (number of segments) of the stick it touches.</b>
-				</p>
-				<p>
-					To help you do this, you will have the chance to test several magic eggs on several sticks.
-					For each egg-stick pair, you will click the “Test” button and watch what happens to the stick.
-					You can test each pair as many times as you like.
-				</p>
-				<div id="intro-demo"></div>
-				<p>
-					Once you have performed three tests, you will be asked to write down your best guess of how the magic eggs work.
-					<b>If you guess correctly, you will win a bonus of £0.20</b>.
-				</p>
-				<p>
-					Then, you will be asked to make 8 predictions about what some new, untested magic eggs will do to some new untested sticks.
-					For each of these that you get right, you will win an <b>additional bonus of £0.05</b>.
-				</p>
-				<p>
-					After this, you will get to perform three more tests.
-					Then, you will make a second, updated guess about how the eggs work.
-					<b>If you guess correctly, you will win another £0.20 bonus</b>.
-				</p>
-				<p>
-					Finally, you will make 8 more predictions about what some new, untested magic eggs will do to some new untested sticks.
-					For each of these that you get right, you will win an <b>additional bonus of £0.05</b>.
-				</p>
-				<p>
-					This means you can make up to <b>£2.40</b> if you get everything correct,
-					but even if you do not you will still make the basic payment of £1.20.
-				</p>
-				<p>
-					<b>Important:</b>
-					Your text answers will be checked by a human before bonuses are paid.
-					Nonsensical or copy-pasted responses will result in receiving zero bonus or outright rejection of your task.
-				</p>
+        <p>The eggs seem to differ in terms of how many stripes and dots they have on them:</p>
+        <div id='intro-eg'></div>
+        <p>And the sticks are of various lengths (have different numbers of segments):</p>
+        <div id='intro-blocks'>
+          <div id="intro-blocks-1"></div><div id="intro-blocks-2"></div><div id="intro-blocks-3"></div>
+        </div>
+        <p>
+          Aha! You discover that when a magic egg touches a stick, it can cause the length of the stick to change
+          (i.e. increasing or decreasing how many segments it has).
+        </p>
+        <div id='intro-touch'>
+          <div id="intro-touch-1"></div><div id="intro-touch-2"></div>
+        </div>
+        <hr>
+        <h2>Task setup</h2>
+        <p>
+          Your task is to figure out the <b>causal relationship between the features of the magic eggs (spots and stripes)
+          and the eggs’ effect on the length (number of segments) of the stick it touches.</b>
+        </p>
+        <p><b>Hint:</b> the same causal law rules over all the pairs.</p>
+        <p>
+          To help you do this, you will have the chance to test several magic eggs on several sticks.
+          For each egg-stick pair, you can click the “Test” button and watch what happens to the stick.
+          You can test each pair as many times as you like.
+        </p>
+        <div id="intro-demo"></div>
+        <p>
+          Once you have performed three tests, you will be asked to write down your best guess of how the magic eggs work.
+          <b>If you guess correctly, you will win a bonus of £0.20.</b>
+        </p>
+        <p>
+          Then, you will be asked to make 8 predictions about what some new, untested magic eggs will do to some new untested sticks.
+          For each of these that you get right, you will win an <b>additional bonus of £0.02</b>.
+        </p>
+        <p>
+          After this, you will get to perform three more tests.
+          Then, you will make a second, updated guess about how the eggs work.
+          If you guess correctly, you will win <b>another £0.20 bonus</b>.
+        </p>
+        <p>
+          Finally, you will make 8 more predictions about what some new, untested magic eggs will do to some new untested sticks.
+          For each of these that you get right, you will win an <b>additional bonus of £0.02</b>.
+        </p>
+        <p>
+          This means you can make up to <b>£1.97</b> if you get everything correct,
+          but even if you do not you will still make the basic payment of £1.25.
+        </p>
+        <p>
+          <b>Important:</b>
+          Your text answers will be checked by a human before bonuses are paid.
+          Nonsensical or copy-pasted responses will result in receiving zero bonus or outright rejection of your task.
+        </p>
 			</div>
 		</div>
 		<div class='button-group-vc'>
@@ -111,15 +112,20 @@
 					<input type="radio" name="check4">Correct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="radio" name="check4">False
 				</p>
-				<li>Your goal is to make the sticks longer</li>
+				<li>Your second guess has to explain the first three pairs of objects as well</li>
 				<p>
 					<input type="radio" name="check5">Correct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="radio" name="check5">False
 				</p>
-				<li>You win bonuses for guessing the true causal relationship and for making correct predictions about new egg and stick combinations.</li>
+				<li>Your goal is to make the sticks longer</li>
 				<p>
 					<input type="radio" name="check6">Correct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="radio" name="check6">False
+				</p>
+				<li>You win bonuses for guessing the true causal relationship and for making correct predictions about new egg and stick combinations.</li>
+				<p>
+					<input type="radio" name="check7">Correct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="check7">False
 				</p>
 			</ol>
 		</form>
@@ -153,20 +159,20 @@
 		<div id="task-train-a" ></div>
 		<div id="task-input-a" style="display: none;" ></div>
 		<div id="task-gen-a" style="display: none;" >
-			<p class="incentive" style="font-size: 25px;">Remember there is a £0.05 bonus if you make a correct prediction.</p>
+			<p class="incentive" style="font-size: 25px;">Remember there is a bonus if you make a correct prediction.</p>
 		</div>
 		<div id="task-change-a"style="display: none;" ></div>
 	</div>
 	<div id="task-bob" style="display: none;" >
 		<div id="task-cover-b" >
 			<h1>Now, check out more of them:</h1>
-			<h3>(You can scroll up to see previous check history)<h3>
+			<h3>(You can scroll up to see previous checks)<h3>
 			<button class='big-button' id='dev-skip-bob'>Skip B</button>
 		</div>
 		<div id="task-train-b" ></div>
 		<div id="task-input-b" style="display: none;" ></div>
 		<div id="task-gen-b" style="display: none;" >
-			<p class="incentive" style="font-size: 25px;">Remember there is a £0.05 bonus if you make a correct prediction.</p>
+			<p class="incentive" style="font-size: 25px;">Remember there is a bonus if you make a correct prediction.</p>
 		</div>
 	</div>
 </div>

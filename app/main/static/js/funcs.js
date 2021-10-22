@@ -564,12 +564,12 @@ function showPostCheckPage (isPass) {
 function showCompletion(code, nCorrect) {
   hide("debrief")
   showNext("completed")
-  let bonusVal = nCorrect * 0.05
+  let bonusVal = nCorrect * 0.02
   bonusVal = Math.round(bonusVal*100)/100
   let t = document.createTextNode(code);
   let co = createText('p', `You got ${nCorrect} predictions correct!
   You will get £${bonusVal} bonus on top of your base pay.
-  Bonus on writing the correct causal relationships will be paid after manual checks.`)
+  Bonus for writing the correct causal relationships will be paid after manual checks.`)
   let returnLink = createCustomElement('p', '', '')
   returnLink.innerHTML = `Click <a href='https://app.prolific.co/submissions/complete?cc=${code}'>here</a> to redirect to Prolific.`
   document.getElementById('completion-code').append(t);
@@ -625,22 +625,22 @@ function getConfigs(config, type) {
     setups.genC = config.filter(c => readDots(c.agent)<1 && [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
   } else if (type=='comp_mult') {
     setups.learnA = [23, 42, 61]
-    setups.genA = [82, 8, 20, 4, 98, 48, 71, 40]
+    setups.genA = [100, 71, 78, 55, 47, 83, 9, 3]
     setups.learnB = [35, 50, 65]
-    setups.genB = [82, 8, 20, 4, 98, 48, 71, 40]
-    setups.genC = [82, 8, 20, 4, 98, 48, 71, 40]
+    setups.genB = [100, 71, 78, 55, 47, 83, 9, 3]
+    setups.genC = [100, 71, 78, 55, 47, 83, 9, 3]
   } else if (type=='comp_mult_reverse') {
     setups.learnA = [35, 50, 65]
-    setups.genA = [82, 8, 20, 4, 98, 48, 71, 40]
+    setups.genA = [100, 71, 78, 55, 47, 83, 9, 3]
     setups.learnB = [23, 42, 61]
-    setups.genB = [82, 8, 20, 4, 98, 48, 71, 40]
-    setups.genC = [82, 8, 20, 4, 98, 48, 71, 40]
+    setups.genB = [100, 71, 78, 55, 47, 83, 9, 3]
+    setups.genC = [100, 71, 78, 55, 47, 83, 9, 3]
   } else if (type=='comp_const') {
     setups.learnA = [23, 42, 61]
-    setups.genA = [82, 8, 20, 4, 98, 48, 71, 40]
+    setups.genA = [100, 71, 78, 55, 47, 83, 9, 3]
     setups.learnB = [27, 31, 35]
-    setups.genB = [82, 8, 20, 4, 98, 48, 71, 40]
-    setups.genC = [82, 8, 20, 4, 98, 48, 71, 40]
+    setups.genB = [100, 71, 78, 55, 47, 83, 9, 3]
+    setups.genC = [100, 71, 78, 55, 47, 83, 9, 3]
   } else if (type=='comp_subs') {
     setups.learnA = config.filter(c => readDots(c.agent)<4 && readStripes(c.agent)==1 && readLength(c.recipient)==3).map(c => c.trial_id)
     setups.genA = config.filter(c => readDots(c.agent)==1 && readStripes(c.agent)==3 && readLength(c.recipient)==4).map(c => c.trial_id)
@@ -747,17 +747,18 @@ function createLearnTask(learnDivPrefix, learnConfig, total=0, isMainTask = true
 }
 function createInputForm(formPrefix) {
   let box = createCustomElement("div", "box", `${formPrefix}-box`);
+  let emphaseText = isSecond? 'Please account for <i>all</i> the magic eggs you checked, and ': 'Please ';
   box.innerHTML = `
           <div class="display-box" id="${formPrefix}-display-box">
             <form class="input-form" id="${formPrefix}-input-form">
               <p>
                 <b>What is your best guess about these magic eggs?</b>
-                (Please be specific about <i>what properties you think matter or do not matter for the effects,
+                (${emphaseText}be specific about <i>what properties you think matter or do not matter for the effects,
                 and how they do so</i>.)
                 <br />
               </p>
               <textarea name="${formPrefix}_input" id="${formPrefix}_input" placeholder="Type here"></textarea>
-              <!-- <p class="incentive">Remember there is a $0.50 bonus if you guess correctly, and nonsense answers will result in a zero bonus or hit rejection.</p> -->
+              <!-- <p class="incentive">Remember there is a bonus if you guess correctly, and nonsense answers will result in a zero bonus or hit rejection.</p> -->
               <p>How certain are you?
                 <select name="${formPrefix}_certainty" id="${formPrefix}_certainty" class="input-rule">
                   <option value="--" SELECTED>
@@ -801,7 +802,7 @@ function createMindChangeForm(formPrefix) {
                 <br />
               </p>
               <textarea name="${formPrefix}_input" id="${formPrefix}_input" placeholder="Type here"></textarea>
-              <!-- <p class="incentive">Remember there is a $0.50 bonus if you guess correctly, and nonsense answers will result in a zero bonus or hit rejection.</p> -->
+              <!-- <p class="incentive">Remember there is a bonus if you guess correctly, and nonsense answers will result in a zero bonus or hit rejection.</p> -->
               <p>How certain are you?
                 <select name="${formPrefix}_certainty" id="${formPrefix}_certainty" class="input-rule">
                   <option value="--" SELECTED>
@@ -850,7 +851,7 @@ function createGenTask(genDivPrefix, genConfigs, total=0) {
   let displayMain = createCustomElement("div", "display-main", `${genDivPrefix}-displaymain-${trialId}`);
   displayMain = createGenStones(genConfigs, displayMain, genDivPrefix, true);
 
-  displayBox.append(createText('h2', taskNumText + 'What will the blocks look like if touched by this magic egg?'))
+  displayBox.append(createText('h2', taskNumText + 'What will the blocks look like if touched by the magic egg?'))
   displayBox.append(beforeMain)
   displayBox.append(createText('h3', 'Make your prediction by clicking on the blocks:'))
   displayBox.append(displayMain)
