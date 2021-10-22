@@ -745,7 +745,7 @@ function createLearnTask(learnDivPrefix, learnConfig, total=0, isMainTask = true
 
   return box
 }
-function createInputForm(formPrefix) {
+function createInputForm(formPrefix, isSecond=false) {
   let box = createCustomElement("div", "box", `${formPrefix}-box`);
   let emphaseText = isSecond? 'Please account for <i>all</i> the magic eggs you checked, and ': 'Please ';
   box.innerHTML = `
