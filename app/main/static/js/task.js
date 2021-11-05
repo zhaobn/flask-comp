@@ -49,7 +49,7 @@ document.getElementById('intro-demo-test-btn-1').onclick = () => {
 }
 
 /** Prep data */
-const taskIds = getConfigs(config, cond)
+const taskIds = prepConfigs(cond)
 
 let aliceLearn = fmtConfig(config.filter(c => taskIds['learnA'].indexOf(c.trial_id) > -1), 'alice', 'learn')
 let aliceGen = fmtConfig(shuffleArray(config.filter(c => taskIds['genA'].indexOf(c.trial_id) > -1)), 'alice', 'gen')
