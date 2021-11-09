@@ -291,8 +291,8 @@ for(let i = 0; i < bobGen.length; i++ ) {
     let prevs = [ aliceLearn.length, aliceGen.length, bobLearn.length ].reduce((a, b) => a + b, 0)
     trialData.selection[prevs+i] = `(0,0,${getCurrentSelection(config, taskGenB)})`
     trialData.correct[prevs+i] = (trialData.result[prevs+i] === trialData.selection[prevs+i])? 1 : 0
+    hide(`${taskGenB}-box-${i+1+aliceGen.length}`);
     if (i < bobGen.length-1) {
-      hide(`${taskGenB}-box-${i+1+aliceGen.length}`);
       showNext(`${taskGenB}-box-${i+2+aliceGen.length}`);
     } else {
       // hide(taskCoverA)
