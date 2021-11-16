@@ -476,9 +476,9 @@ doneBtn.onclick = () => {
   // let correct = 0;
   // truths.forEach((t, i) => (t===predicted[i])? correct+=1: null);
   // clientData.subject.correct = correct;
-
+  const submit_url = doneBtn.getAttribute("data-submit-url");
   if (mode === 'flask') {
-    fetch(root_string, {
+    fetch(submit_url, {
         method: 'POST',
         body: JSON.stringify(clientData),
     })
