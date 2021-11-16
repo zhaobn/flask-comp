@@ -602,38 +602,114 @@ function download(content, fileName, contentType) {
   a.click();
 }
 /** Data functions */
-// Experiment 2
+// // Experiment 2
+// function prepConfigs(type) {
+//   let setups = {
+//     'learnA': [],
+//     'genA': [],
+//     'learnB': [],
+//     'genB': [],
+//     'genC': [],
+//   }
+//   if (type=='comp_mult') {
+//     setups.learnA = [7, 10, 13]
+//     setups.genA = [100, 55, 94, 71, 31, 19, 41, 3]
+//     setups.learnB = [67, 50, 33]
+//     setups.genB = [100, 55, 94, 71, 31, 19, 41, 3]
+//     setups.genC = [100, 55, 94, 71, 31, 19, 41, 3]
+//   } else if (type=='comp_mult_reverse') {
+//     setups.learnA = [67, 50, 33]
+//     setups.genA = [100, 55, 94, 71, 31, 19, 41, 3]
+//     setups.learnB = [7, 10, 13]
+//     setups.genB = [100, 55, 94, 71, 31, 19, 41, 3]
+//     setups.genC = [100, 55, 94, 71, 31, 19, 41, 3]
+//   } else if (type=='comp_const') {
+//     setups.learnA = [7, 10, 13]
+//     setups.genA = [100, 55, 94, 71, 31, 19, 41, 3]
+//     setups.learnB = [27, 47, 67]
+//     setups.genB = [100, 55, 94, 71, 31, 19, 41, 3]
+//     setups.genC = [100, 55, 94, 71, 31, 19, 41, 3]
+//   } else {
+//     console.log('Cond type not found')
+//   }
+//   return setups
+// }
+// Pilot 2
 function prepConfigs(type) {
-  let setups = {
-    'learnA': [],
-    'genA': [],
-    'learnB': [],
-    'genB': [],
-    'genC': [],
-  }
-  if (type=='comp_mult') {
-    setups.learnA = [7, 10, 13]
-    setups.genA = [100, 55, 94, 71, 31, 19, 41, 3]
-    setups.learnB = [67, 50, 33]
-    setups.genB = [100, 55, 94, 71, 31, 19, 41, 3]
-    setups.genC = [100, 55, 94, 71, 31, 19, 41, 3]
-  } else if (type=='comp_mult_reverse') {
-    setups.learnA = [67, 50, 33]
-    setups.genA = [100, 55, 94, 71, 31, 19, 41, 3]
-    setups.learnB = [7, 10, 13]
-    setups.genB = [100, 55, 94, 71, 31, 19, 41, 3]
-    setups.genC = [100, 55, 94, 71, 31, 19, 41, 3]
-  } else if (type=='comp_const') {
-    setups.learnA = [7, 10, 13]
-    setups.genA = [100, 55, 94, 71, 31, 19, 41, 3]
-    setups.learnB = [27, 47, 67]
-    setups.genB = [100, 55, 94, 71, 31, 19, 41, 3]
-    setups.genC = [100, 55, 94, 71, 31, 19, 41, 3]
-  } else {
-    console.log('Cond type not found')
+  setups = {
+    'learnA': [27, 31, 35],
+    'genA': [3, 9, 47, 56, 66, 71, 83, 100],
+    'learnB': [23, 42, 61],
+    'genB': [3, 9, 47, 56, 66, 71, 83, 100],
+    'genC': [3, 9, 47, 56, 66, 71, 83, 100],
   }
   return setups
 }
+// // Experiment 1
+// function prepConfigs(type) {
+//   // console.log(config)
+//   let setups = {
+//     'learnA': [],
+//     'genA': [],
+//     'learnB': [],
+//     'genB': [],
+//     'genC': [],
+//   }
+//   // if (type=='simple_easy') {
+//   //   setups.learnA = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==2 && readLength(c.recipient)<4).map(c => c.trial_id)
+//   //   setups.genA = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==2 && readLength(c.recipient)==4).map(c => c.trial_id)
+//   //   setups.learnB = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)<4 && readLength(c.recipient)==2).map(c => c.trial_id)
+//   //   setups.genB = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==4 && readLength(c.recipient)==2).map(c => c.trial_id)
+//   //   setups.genC = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)!=2 && readLength(c.recipient)!=2).map(c => c.trial_id)
+//   // } else if (type=='simple_hard') {
+//   //   setups.learnA = config.filter(c => readDots(c.agent)<1 && readLength(c.result)==4).map(c => c.trial_id)
+//   //   setups.genA = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==3 && readLength(c.recipient)==2).map(c => c.trial_id)
+//   //   setups.learnB = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==1 && readLength(c.recipient)<4).map(c => c.trial_id)
+//   //   setups.genB = config.filter(c => readDots(c.agent)<1 && readStripes(c.agent)==1 && readLength(c.recipient)==4).map(c => c.trial_id)
+//   //   setups.genC = config.filter(c => readDots(c.agent)<1 && [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
+//   // } else
+//   if (type=='comp_mult') {
+//     setups.learnA = [23, 42, 61]
+//     setups.genA = [100, 71, 78, 55, 47, 83, 9, 3]
+//     setups.learnB = [35, 50, 65]
+//     setups.genB = [100, 71, 78, 55, 47, 83, 9, 3]
+//     setups.genC = [100, 71, 78, 55, 47, 83, 9, 3]
+//   } else if (type=='comp_mult_reverse') {
+//     setups.learnA = [35, 50, 65]
+//     setups.genA = [100, 71, 78, 55, 47, 83, 9, 3]
+//     setups.learnB = [23, 42, 61]
+//     setups.genB = [100, 71, 78, 55, 47, 83, 9, 3]
+//     setups.genC = [100, 71, 78, 55, 47, 83, 9, 3]
+//   } else if (type=='comp_const') {
+//     setups.learnA = [23, 42, 61]
+//     setups.genA = [100, 71, 78, 55, 47, 83, 9, 3]
+//     setups.learnB = [27, 31, 35]
+//     setups.genB = [100, 71, 78, 55, 47, 83, 9, 3]
+//     setups.genC = [100, 71, 78, 55, 47, 83, 9, 3]
+//   } else if (type=='comp_subs') {
+//     setups.learnA = config.filter(c => readDots(c.agent)<4 && readStripes(c.agent)==1 && readLength(c.recipient)==3).map(c => c.trial_id)
+//     setups.genA = config.filter(c => readDots(c.agent)==1 && readStripes(c.agent)==3 && readLength(c.recipient)==4).map(c => c.trial_id)
+//     setups.learnB = [12,24,36]
+//     setups.genB = [21]
+//     setups.genC = config.filter(c => [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
+//   } else if (type=='comp_subs_reverse') {
+//     setups.learnA = [12,24,36]
+//     setups.genA = [21]
+//     setups.learnB = config.filter(c => readDots(c.agent)<4 && readStripes(c.agent)==1 && readLength(c.recipient)==3).map(c => c.trial_id)
+//     setups.genB = config.filter(c => readDots(c.agent)==1 && readStripes(c.agent)==3 && readLength(c.recipient)==4).map(c => c.trial_id)
+//     setups.genC = config.filter(c => [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
+//   } else if (type=='comp_comp') {
+//     setups.learnA = [3,16,33]
+//     setups.genA = [17]
+//     setups.learnB = config.filter(c => readDots(c.agent)<4 && readStripes(c.agent)==1 && readLength(c.recipient)==3).map(c => c.trial_id)
+//     setups.genB = config.filter(c => readDots(c.agent)==1 && readStripes(c.agent)==3 && readLength(c.recipient)==4).map(c => c.trial_id)
+//     setups.genC = config.filter(c => [setups.learnA, setups.learnB, setups.genA, setups.genB].flat().indexOf(c.trial_id) < 0).map(c => c.trial_id)
+//   } else {
+//     console.log('Cond type not found')
+//   }
+//   return setups
+// }
+
 function fmtConfig(dataArr, batch, phase, agentColor = 'tomato') {
   let fmtted = []
   dataArr.forEach((data, idx) => {
@@ -645,6 +721,7 @@ function fmtConfig(dataArr, batch, phase, agentColor = 'tomato') {
     dd['agent'] = data['agent'].replace(/\s/g, '');
     dd['recipient'] = data['recipient'].replace(/\s/g, '');
     dd['result'] = data['result'].replace(/\s/g, '');
+    dd['alter'] = data['alter'].replace(/\s/g, '');
     dd['color'] = agentColor
     dd['agentSvg'] = getAgentStoneSvg(dd['agent'], agentColor)
     fmtted.push(dd)
@@ -661,8 +738,10 @@ function prepTrialData (configsArr) {
     "agent-color": [],
     "recipient": [],
     "result": [],
+    "alter": [],
     "selection": [],
     "correct": [],
+    "gtCorrect": [],
   }
   configsArr.forEach(conf => {
     trialData['batch'].push(conf['batch']);
@@ -673,8 +752,10 @@ function prepTrialData (configsArr) {
     trialData['agent-color'].push(conf['color']);
     trialData['recipient'].push(conf['recipient']);
     trialData['result'].push(conf['result']);
+    trialData['alter'].push(conf['alter']);
     trialData['selection'].push('--');
     trialData['correct'].push(0);
+    trialData['gtCorrect'].push(0);
   })
   return trialData
 }
@@ -716,7 +797,7 @@ function createLearnTask(learnDivPrefix, learnConfig, total=0, isMainTask = true
 }
 function createInputForm(formPrefix, isSecond=false) {
   let box = createCustomElement("div", "box", `${formPrefix}-box`);
-  let emphaseText = isSecond? 'Please account for <i>all</i> the magic eggs you checked, and ': 'Please ';
+  let emphaseText = isSecond? 'Please account for <b>all</b> the magic eggs you have checked, and ': 'Please ';
   box.innerHTML = `
           <div class="display-box" id="${formPrefix}-display-box">
             <form class="input-form" id="${formPrefix}-input-form">
