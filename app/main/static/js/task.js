@@ -460,15 +460,15 @@ doneBtn.onclick = () => {
   let nCorrect = trialData['correct'].reduce((a, b) => a + b, 0);
 
   let clientData = {};
-  clientData.subject = subjectData;
-  clientData.subject.condition = cond;
-  clientData.subject.date = formatDates(end_time, 'date');
-  clientData.subject.time = formatDates(end_time, 'time');
-  clientData.subject.instructions_duration = start_task_time - start_time;
-  clientData.subject.task_duration = end_time - start_task_time;
-  clientData.subject.token = token;
-  clientData.subject.correct = nCorrect;
-  clientData.trials = trialData;
+  clientData.subjectwise = subjectData;
+  clientData.subjectwise.condition = cond;
+  clientData.subjectwise.date = formatDates(end_time, 'date');
+  clientData.subjectwise.time = formatDates(end_time, 'time');
+  clientData.subjectwise.instructions_duration = start_task_time - start_time;
+  clientData.subjectwise.task_duration = end_time - start_task_time;
+  clientData.subjectwise.token = token;
+  clientData.subjectwise.correct = nCorrect;
+  clientData.trialwise = trialData;
 
   // /** Give feedback */
   // const truths = genConfigs.map(c => c[4])
@@ -476,8 +476,9 @@ doneBtn.onclick = () => {
   // let correct = 0;
   // truths.forEach((t, i) => (t===predicted[i])? correct+=1: null);
   // clientData.subject.correct = correct;
-  const submit_url = doneBtn.getAttribute("data-submit-url");
   if (mode === 'flask') {
+    const submit_url = doneBtn.getAttribute("data-submit-url");
+    console.log(clientData)
     fetch(submit_url, {
         method: 'POST',
         body: JSON.stringify(clientData),
