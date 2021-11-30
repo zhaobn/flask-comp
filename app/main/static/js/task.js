@@ -1,7 +1,7 @@
 const mode = 'flask' // '', 'dev', 'test', 'flask'
 
 /** Pick a condition */
-const conds_for_exp = [ 'comp_mult', 'comp_mult_reverse', 'comp_const' ];
+const conds_for_exp = ['sub', 'mult'];
 const cond = conds_for_exp[Math.floor(Math.random() * conds_for_exp.length)];
 (mode==='dev'|mode==='test')? console.log(`${mode} mode; condition ${cond}.`) : null;
 
