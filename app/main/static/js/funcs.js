@@ -604,7 +604,7 @@ function download(content, fileName, contentType) {
 /** Data functions */
 function prepConfigs(type) {
   let setups = {}
-  if (type==='sub') {
+  if (type==='mult') {
     setups = {
       'learnA': [7, 10, 13],
       'genA': [100, 55, 94, 71, 31, 19, 41, 3],
